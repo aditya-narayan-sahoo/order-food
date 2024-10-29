@@ -22,7 +22,7 @@ body {
 .nav-items > ul {
   display: flex;
   font-size: 18px;
-  list-style-type: none;
+  list-style: none;
 }
 
 .nav-items > ul > li {
@@ -35,6 +35,11 @@ body {
 .nav-items > ul > li:hover {
   background-color: #f1f1f1;
   border-radius: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
 }
 
 .login {
