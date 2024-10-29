@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { HEADER_IMG } from "../utils/constants";
 
 const Header = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   return (
     <div className="header">
       <div className="logo-container">
@@ -12,6 +14,12 @@ const Header = () => {
           <li>About Us</li>
           <li>Contact Us</li>
           <li>Cart</li>
+          <button
+            className="login"
+            onClick={() => setIsLoggedIn((prevState) => !prevState)}
+          >
+            {isLoggedIn ? "Logout" : "Login"}
+          </button>
         </ul>
       </div>
     </div>

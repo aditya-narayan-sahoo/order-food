@@ -29,11 +29,27 @@ body {
   margin: 0 15px;
   padding: 10px;
   transition: background-color 0.3s ease;
+  position: relative;
 }
 
 .nav-items > ul > li:hover {
   background-color: #f1f1f1;
   border-radius: 10px;
+}
+
+.login {
+  margin-right: 5px;
+  padding: 10px 20px;
+  border: none;
+  background-color: rgba(212, 211, 211, 0.915);
+  color: black;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.login:hover {
+  background-color: #646464;
+  color: white;
 }
 
 .body {
@@ -92,17 +108,18 @@ h4 {
   margin: 5px;
   cursor: pointer;
   border: none;
-  padding: 15px 30px;
+  padding: 12px 20px;
   border-radius: 5px;
-  background-color: #258af6;
-  color: white;
+  background-color: #00ff26;
+  color: black;
   font-size: 16px;
   transition: background-color 0.2s ease, transform 0.2s ease,
     box-shadow 0.2s ease;
 }
 
 .filter-btn:hover {
-  background-color: #0056b3;
+  background-color: #007f26;
+  color: white;
   transform: translateY(-2px);
   box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4);
 }
@@ -110,6 +127,50 @@ h4 {
 .filter-btn:active {
   transform: translateY(1px);
   box-shadow: none;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  margin: 0 10px;
+}
+
+.search-box {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 260px;
+  transition: border-color 0.3s ease;
+}
+
+.search-box:focus {
+  border-color: black;
+  outline: none;
+}
+
+.clear-btn {
+  margin-left: 10px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #e71e1e;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.clear-btn:hover {
+  background-color: #9a0500; /* Match filter button hover style */
+  color: white;
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+.clear-btn:active {
+  transform: translateY(1px);
 }
 
 @media (max-width: 768px) {
