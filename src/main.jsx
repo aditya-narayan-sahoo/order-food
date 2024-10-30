@@ -4,9 +4,10 @@ import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App.jsx";
 import Body from "./components/Body.jsx";
-import Contact from "./components/Error/Contact/Contact.jsx";
+import Contact from "./components/Contact/Contact.jsx";
 import Error from "./components/Error/Error.jsx";
-import About from "./components/Error/Contact/About/About.jsx";
+import About from "./components/About/About.jsx";
+import RestaurantMenu from "./components/RestaurantMenu/RestaurantMenu.jsx";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,7 @@ const router = createBrowserRouter([
       { path: "/", element: <Body /> },
       { path: "/about", element: <About /> },
       { path: "/contact", element: <Contact /> },
+      { path: "/restaurant/:resId", element: <RestaurantMenu /> },
     ],
     errorElement: <Error />,
   },
