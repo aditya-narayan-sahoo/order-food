@@ -1,13 +1,16 @@
+/* eslint-disable react-refresh/only-export-components */
 import "./index.css";
-import { StrictMode } from "react";
+import { StrictMode, lazy, Suspense } from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App.jsx";
-import Body from "./components/Body.jsx";
-import Contact from "./components/Contact/Contact.jsx";
-import Error from "./components/Error/Error.jsx";
-import About from "./components/About/About.jsx";
-import RestaurantMenu from "./components/RestaurantMenu/RestaurantMenu.jsx";
+const Body = lazy(() => import("./components/Body.jsx"));
+const Contact = lazy(() => import("./components/Contact/Contact.jsx"));
+const Error = lazy(() => import("./components/Error/Error.jsx"));
+const About = lazy(() => import("./components/About/About.jsx"));
+const RestaurantMenu = lazy(() =>
+  import("./components/RestaurantMenu/RestaurantMenu.jsx")
+);
 
 const router = createBrowserRouter([
   {
@@ -24,6 +27,8 @@ const router = createBrowserRouter([
 ]);
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <Suspense fallback={<div>Loading...</div>}>
+      <RouterProvider router={router} />
+    </Suspense>
   </StrictMode>
 );
