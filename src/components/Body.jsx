@@ -1,12 +1,13 @@
 import RestaurantCard from "./RestaurantCard";
 import { useState, useEffect, useMemo, useCallback } from "react";
-import { SWIGGY_API_URL } from "../utils/constants";
 import Shimmer from "./Shimmer/Shimmer";
 import { Link } from "react-router-dom";
+import useRestaurantList from "../utils/useRestaurantList";
+import useOnlineStatus from "../utils/useOnlineStatus";
+import Error from "./Error/Error";
 
 const Body = () => {
-  const [originalList, setOriginalList] = useState([]);
-  const [list, setList] = useState([]);
+  const { originalList, list, setList } = useRestaurantList();
   const [isFiltered, setIsFiltered] = useState(false);
   const [searchText, setSearchText] = useState("");
   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState(searchText);
@@ -21,21 +22,7 @@ const Body = () => {
       setList(filteredList);
     }
     setIsFiltered((prevState) => !prevState);
-  }, [isFiltered, originalList]);
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = async () => {
-    const data = await fetch(SWIGGY_API_URL);
-    const response = await data.json();
-    const restaurants =
-      response?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants;
-    setOriginalList(restaurants);
-    setList(restaurants);
-  };
+  }, [isFiltered, originalList, setList]);
 
   // Debouncing effect
   useEffect(() => {
@@ -60,12 +47,15 @@ const Body = () => {
   // Update list based on filtered results
   useEffect(() => {
     setList(filteredRestaurants);
-  }, [filteredRestaurants]);
+  }, [filteredRestaurants, setList]);
 
   const clearSearchInput = () => {
     setSearchText("");
     setList(originalList);
   };
+
+  const onlineStatus = useOnlineStatus();
+  if (!onlineStatus) return <Error />;
 
   return (
     <div className="body">
