@@ -14,16 +14,9 @@ const RestaurantMenu = () => {
   const { itemCards } =
     resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card
       ?.card || [];
-  //   const categories =
-  //     resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.filter(
-  //       (c) =>
-  //         c?.card?.card?.["@type"] ===
-  //         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
-  //     ) || [];
-  //   //console.log(categories);
 
   return (
-    <div className="font-sans p-5 max-w-xl mx-auto bg-white rounded-lg shadow-md">
+    <div className="font-sans p-5 max-w-3xl mx-auto bg-white rounded-lg shadow-lg">
       <div className="text-center mb-4">
         <h1 className="text-2xl font-bold text-gray-800 mb-1">{name}</h1>
         <p className="text-sm text-gray-600 mb-1">{costForTwoMessage}</p>
@@ -33,7 +26,7 @@ const RestaurantMenu = () => {
         {itemCards.map((item) => (
           <li
             key={item.card.info.id}
-            className="flex justify-between border-b p-2 border-gray-200 last:border-b-0"
+            className="flex justify-between items-center border-b p-2 border-gray-200 last:border-b-0"
           >
             <span className="text-md text-gray-600 mr-3">
               {item.card.info.name}

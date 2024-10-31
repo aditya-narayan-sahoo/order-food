@@ -58,25 +58,25 @@ const Body = () => {
   if (!onlineStatus) return <Error />;
 
   return (
-    <div className="body">
-      <div className="p-[10px] mx-auto my-[10px] flex justify-center">
-        <div className="flex items-center my-0 mx-[10px]">
+    <div className="font-sans">
+      <div className="p-5 mx-auto flex justify-center flex-col md:flex-row">
+        <div className="flex items-center mb-4 md:mb-0">
           <input
             type="text"
-            className="p-[10px] border border-gray-300 rounded-md text-base w-[260px] transition-colors duration-300 focus:border-black focus:outline-none"
+            className="p-2 border border-gray-300 rounded-md text-base w-full md:w-64 transition-colors duration-300 focus:border-gray-500 focus:outline-none"
             placeholder="Search Restaurant"
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
           />
           <button
             onClick={clearSearchInput}
-            className="ml-2 px-5 py-[10px] border-none rounded-md bg-red-600 text-white text-lg cursor-pointer transition-all duration-200 ease-in-out hover:bg-red-800 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-[2px]"
+            className="ml-2 px-4 py-2 border-none rounded-md bg-red-600 text-white text-base cursor-pointer transition-all duration-200 ease-in-out hover:bg-red-700 hover:shadow-lg"
           >
             Clear
           </button>
         </div>
         <button
-          className="m-1 cursor-pointer border-none py-3 px-5 rounded-md bg-[#00ff26] text-black text-base transition-colors duration-500 ease-in-out transform hover:bg-[#007f26] hover:text-white hover:translate-y-[-2px] hover:shadow-lg active:translate-y-[1px] active:shadow-none"
+          className="mt-2 md:mt-0 md:ml-2 py-2 px-4 rounded-md bg-green-500 text-white text-base transition-colors duration-300 ease-in-out hover:bg-green-600 active:scale-95"
           onClick={handleBtnClick}
         >
           {isFiltered

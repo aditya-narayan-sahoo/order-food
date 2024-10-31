@@ -8,11 +8,11 @@ const RestaurantCard = ({ resData }) => {
       <img
         src={SWIGGY_CDN_IMG_URL + cloudinaryImageId}
         alt="restaurant"
-        className="w-full object-cover rounded-lg mb-2 h-[180px]"
+        className="w-full object-cover rounded-lg mb-2 h-[180px] hover:scale-105"
       />
-      <h3>{name}</h3>
+      <h3 className="font-semibold">{name}</h3>
       <h4>{cuisines.join(", ")}</h4>
-      <h4>{avgRating} stars</h4>
+      <h4 className="text-yellow-500">{avgRating} ★</h4>
       <h4>{costForTwo}</h4>
       <h4>{sla.slaString}</h4>
     </div>
