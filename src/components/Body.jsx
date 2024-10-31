@@ -1,4 +1,7 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, {
+  withVegLabel,
+  withNonVegLabel,
+} from "./RestaurantCard";
 import { useState, useEffect, useMemo, useCallback } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
@@ -11,6 +14,9 @@ const Body = () => {
   const [isFiltered, setIsFiltered] = useState(false);
   const [searchText, setSearchText] = useState("");
   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState(searchText);
+
+  const VegRestaurantCard = withVegLabel(RestaurantCard);
+  const NonVegRestaurantCard = withNonVegLabel(RestaurantCard);
 
   const handleBtnClick = useCallback(() => {
     if (isFiltered) {
@@ -90,7 +96,11 @@ const Body = () => {
         <div className="flex flex-wrap justify-center">
           {list.map((res) => (
             <Link key={res.info.id} to={`/restaurant/${res.info.id}`}>
-              <RestaurantCard resData={res} />
+              {res.info.veg ? (
+                <VegRestaurantCard resData={res} />
+              ) : (
+                <NonVegRestaurantCard resData={res} />
+              )}
             </Link>
           ))}
         </div>
