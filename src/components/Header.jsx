@@ -4,27 +4,28 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   return (
-    <div className="header">
+    <div className="flex justify-between items-center bg-white shadow-md rounded-lg m-2 p-2">
       <div className="logo-container">
-        <img className="logo" src={HEADER_IMG} alt="Company" />
+        <img className="w-32" src={HEADER_IMG} alt="Company" />
       </div>
       <div className="nav-items">
-        <ul>
-          <li>
+        <ul className="flex flex-col text-lg list-none md:flex-row">
+          <li className="mx-4 py-2 relative hover:bg-gray-100 rounded-lg transition-colors duration-300">
             <Link to="/">Home</Link>
           </li>
-          <li>
+          <li className="mx-4 py-2 relative hover:bg-gray-100 rounded-lg transition-colors duration-300">
             <Link to="/about">About</Link>
           </li>
-          <li>
+          <li className="mx-4 py-2 relative hover:bg-gray-100 rounded-lg transition-colors duration-300">
             <Link to="/contact">Contact</Link>
           </li>
-          <li>
+          <li className="mx-4 py-2 relative hover:bg-gray-100 rounded-lg transition-colors duration-300">
             <Link>Cart</Link>
           </li>
           <button
-            className="login"
+            className="mr-2 px-5 py-2 border-none bg-gray-300 text-black text-base rounded-md hover:bg-gray-600 hover:text-white transition-colors duration-300"
             onClick={() => setIsLoggedIn((prevState) => !prevState)}
           >
             {isLoggedIn ? "Logout" : "Login"}

@@ -4,11 +4,11 @@ const RestaurantCard = ({ resData }) => {
   const { cloudinaryImageId, name, cuisines, avgRating, costForTwo, sla } =
     resData.info;
   return (
-    <div className="res-card">
+    <div className="w-[250px] p-2 m-2 bg-white rounded-lg shadow-md transition-transform duration-300 ease-in-out hover:translate-y-[-5px] hover:shadow-lg h-[450px]">
       <img
         src={SWIGGY_CDN_IMG_URL + cloudinaryImageId}
         alt="restaurant"
-        className="res-logo"
+        className="w-full object-cover rounded-lg mb-2 h-[180px]"
       />
       <h3>{name}</h3>
       <h4>{cuisines.join(", ")}</h4>

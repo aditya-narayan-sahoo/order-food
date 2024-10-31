@@ -5,12 +5,10 @@ import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App.jsx";
 const Body = lazy(() => import("./components/Body.jsx"));
-const Contact = lazy(() => import("./components/Contact/Contact.jsx"));
-const Error = lazy(() => import("./components/Error/Error.jsx"));
-const About = lazy(() => import("./components/About/About.jsx"));
-const RestaurantMenu = lazy(() =>
-  import("./components/RestaurantMenu/RestaurantMenu.jsx")
-);
+const Contact = lazy(() => import("./components/Contact.jsx"));
+const Error = lazy(() => import("./components/Error.jsx"));
+const About = lazy(() => import("./components/About.jsx"));
+const RestaurantMenu = lazy(() => import("./components/RestaurantMenu.jsx"));
 
 const router = createBrowserRouter([
   {
