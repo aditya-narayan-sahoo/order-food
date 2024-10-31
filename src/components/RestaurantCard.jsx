@@ -18,14 +18,14 @@ const RestaurantCard = ({ resData }) => {
         alt="restaurant"
         className="w-full object-cover rounded-lg mb-2 h-[180px] hover:scale-105"
       />
-      <h3 className="font-semibold">{name}</h3>
-      <h4>{cuisines.join(", ")}</h4>
-      <h4 className="flex gap-4">
+      <h3 className="text-lg font-semibold">{name}</h3>
+      <h4 className="text-md tracking-tight">{cuisines.join(", ")}</h4>
+      <h4 className="pt-1 flex gap-2">
         <span className="text-yellow-500">{avgRating} ★</span>
-        {totalRatingsString} RATINGS
+        <span className="tracking-tight">({totalRatingsString} RATINGS)</span>
       </h4>
-      <h4>{costForTwo}</h4>
-      <h4>{sla.slaString}</h4>
+      <h5 className="text-[15px]">{costForTwo}</h5>
+      <h5 className="text-[15px]">{sla.slaString}</h5>
     </div>
   );
 };

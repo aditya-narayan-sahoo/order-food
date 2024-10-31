@@ -1,15 +1,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-h3 {
-  font-size: 20px;
-  margin: 10px 0 5px 0;
-  color: #555;
-}
-
-h4 {
-  font-size: 16px;
-  margin: 5px 0;
-  color: #777;
-}
