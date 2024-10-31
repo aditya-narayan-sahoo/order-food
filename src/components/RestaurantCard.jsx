@@ -12,7 +12,7 @@ const RestaurantCard = ({ resData }) => {
     totalRatingsString,
   } = resData.info;
   return (
-    <div className="w-[250px] p-2 m-2 bg-white rounded-lg shadow-md transition-transform duration-300 ease-in-out hover:translate-y-[-5px] hover:shadow-lg h-[450px]">
+    <div className="w-[250px] p-2 m-2 bg-gray-100 rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:translate-y-[-5px] hover:shadow-lg h-[450px]">
       <img
         src={SWIGGY_CDN_IMG_URL + cloudinaryImageId}
         alt="restaurant"
