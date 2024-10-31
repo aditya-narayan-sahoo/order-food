@@ -1,9 +1,12 @@
+import { useDispatch } from "react-redux";
 import { CART_ITEM_IMG_URL } from "../utils/constants";
+import { addItem } from "../store/cartSlice";
 
 const ItemList = ({ items }) => {
+  const dispatch = useDispatch();
+
   const handleAddItem = (item) => {
-    // Dispatch an item to be done later
-    console.log(item);
+    dispatch(addItem(item));
   };
 
   return (
@@ -19,7 +22,10 @@ const ItemList = ({ items }) => {
                 {item.card.info.name}
               </h3>
               <p className="text-md text-gray-700">
-                ₹{(item.card.info.price / 100).toFixed(2)}
+                ₹
+                {(
+                  (item.card.info.price || item.card.info.defaultPrice) / 100
+                ).toFixed(2)}
               </p>
               <p className="text-sm text-gray-600">
                 {item.card.info.description}

@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { HEADER_IMG } from "../utils/constants";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const cartItems = useSelector((store) => store.cart.items);
+  console.log(cartItems);
 
   return (
     <div className="flex justify-between items-center bg-white shadow-md rounded-lg m-2 p-2">
@@ -24,11 +27,11 @@ const Header = () => {
           <li className="mx-4 py-1 px-3 relative hover:bg-gray-200 rounded-lg transition-colors duration-500">
             <Link to="/contact">Contact Us</Link>
           </li>
-          <li className="mx-4 py-1 px-3 relative hover:bg-gray-200 rounded-lg transition-colors duration-500">
-            <Link>Cart</Link>
+          <li className="mx-4 py-1 px-3 relative hover:bg-gray-200 rounded-lg transition-colors duration-500 font-semibold">
+            <Link to="/cart">Cart ({cartItems.length})</Link>
           </li>
           <button
-            className="mr-2 px-5 py-2 border-none bg-gray-300 text-black text-base rounded-md hover:bg-gray-600 hover:text-white transition-colors duration-300"
+            className="mr-2 px-4 py-1 border-none bg-gray-300 text-black text-base rounded-md hover:bg-gray-600 hover:text-white transition-colors duration-300"
             onClick={() => setIsLoggedIn((prevState) => !prevState)}
           >
             {isLoggedIn ? "Logout" : "Login"}
