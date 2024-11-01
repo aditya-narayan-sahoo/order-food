@@ -14,11 +14,16 @@ const Cart = () => {
     dispatch(removeItem(index));
   };
 
+  const totalPrice = cartItems.reduce((total, item) => {
+    const price = item.card?.info?.price || item.card?.info?.defaultPrice || 0;
+    return total + price / 100;
+  }, 0);
+
   return (
     <div className="bg-gray-100 min-h-screen flex flex-col items-center">
       <h1 className="text-4xl font-bold mt-8">My Cart</h1>
       <button
-        className="p-2 mt-2 shadow-xl bg-blue-600 text-white rounded-md hover:bg-violet-700  hover:scale-105"
+        className="p-2 mt-2 shadow-xl bg-blue-600 text-white rounded-md hover:bg-violet-700 hover:scale-105"
         onClick={() => dispatch(clearCart())}
       >
         Clear Cart
@@ -56,7 +61,7 @@ const Cart = () => {
                     src={`${CART_ITEM_IMG_URL}${item.card.info.imageId}`}
                     alt={item.card.info.name}
                   />
-                  <div className="absolute -bottom-4 left-0 right-0 flex p-1  justify-center gap-4">
+                  <div className="absolute -bottom-4 left-0 right-0 flex p-1 justify-center gap-4">
                     <button
                       className="bg-white border-2 font-bold border-green-500 text-green-600 py-1 px-3 rounded-xl shadow-lg transition-transform duration-300 hover:bg-green-600 hover:text-white transform hover:scale-105"
                       onClick={() => handleAddItem(item)}
@@ -74,6 +79,9 @@ const Cart = () => {
                 </div>
               </div>
             ))}
+            <div className="mt-4 text-lg text-center font-bold text-gray-800">
+              Total Price: ₹{totalPrice.toFixed(2)}
+            </div>
           </div>
         )}
       </div>
