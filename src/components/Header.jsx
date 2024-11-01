@@ -6,8 +6,6 @@ import { useSelector } from "react-redux";
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const cartItems = useSelector((store) => store.cart.items);
-  console.log(cartItems);
-
   return (
     <div className="flex justify-between items-center bg-white shadow-md rounded-lg m-2 p-2">
       <div className="logo-container flex items-center">
